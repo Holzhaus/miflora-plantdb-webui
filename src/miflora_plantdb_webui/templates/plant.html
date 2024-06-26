@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}MiFlora PlantDB - {{plant.display_pid}}{% endblock %}
+
+{% block content %}
+<section class="container" id="plant-meta">
+   <h1 class="title">{{ plant.display_pid }}</h1>
+
+   {% for attr in ("origin", "production", "category", "blooming", "color", "size", "soil", "sunlight", "watering", "fertilization", "pruning") %}
+   {% if plant[attr] %}
+   <dt id="{{ attr }}">{{ attr | title }}</dt>
+   <dd>{{ plant[attr] }}</dd>
+   {% endif %}
+   {% endfor %}
+</section>
+
+<section class="container" id="plant-hass">
+  <h2 class="title">Home Assistant Code</h2>
+  <p>Use the following code in Home Assistant's <a href="https://www.home-assistant.io/docs/configuration/"><tt>configuration.yaml</tt></a> to set the limits for the <a href="https://www.home-assistant.io/integrations/plant">Plant Monitor integration</a>.</p>
+  <pre><code data-lang="YAML">
+  plant:
+   name_of_your_plant:
+      sensors:
+         ...
+
+      # {{ plant.display_pid }}
+      min_moisture: {{plant.min_soil_moist}}
+      max_moisture: {{plant.max_soil_moist}}
+      min_conductivity: {{plant.min_soil_ec}}
+      max_conductivity: {{plant.max_soil_ec}}
+      min_temperature: {{plant.min_temp}}
+      max_temperature: {{plant.max_temp}}
+      min_brightness: {{plant.min_light_lux}}
+      max_brightness: {{plant.max_light_lux}}
+  </code></pre>
+</section>
+
+<section class="container" id="plant-mr">
+  <h2 class="title">Plant as JSON</h2>
+  <p>You can also retrieve the plant information in a machine readable format.</p>
+  <a class="button" href="{{plant.slug}}.json">JSON</a>
+</section>
+{% endblock %}

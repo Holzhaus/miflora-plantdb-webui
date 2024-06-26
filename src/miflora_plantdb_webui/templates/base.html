@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="icon" href="https://milligram.io/images/icon.png" />
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+    <!-- Milligram CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <link rel="stylesheet" href="https://milligram.io/styles/main.css" />
+    {% endblock %}
+  </head>
+  <body>
+    {% block body %}
+    <main class="wrapper">
+      <nav class="navigation">
+        <section class="container">
+          <a class="navigation-title">
+            <h1 class="title">MiFlora Plant DB</h1>
+          </a>
+        </section>
+      </nav>
+
+      {% block content %}{% endblock %}
+
+      <footer class="footer">
+        {% block footer %}
+        {% endblock %}
+      </footer>
+    </main>
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}MiFlora PlantDB{% endblock %}
+
+{% block content %}
+<section class="container" id="description">
+  <h1 class="title">MiFlora PlantDB</h1>
+  <p>This is a web view of the MiFlora Plant Database from the HHCC Flower Care app, which can be found at <a href="https://github.com/khronimo/MiFloraDB" target="_blank">khronimo/MiFloraDB</a>.</p>
+</section>
+
+<section class="container" id="plant-list">
+  <h2 class="title">Plant List</h2>
+  <p>The list contains {{ plants | length }} entries.<p>
+  <ul>
+  {% for plant in plants %}
+  <li><a href="plant/{{ plant.slug }}.html">{{ plant.display_pid }}</a></li>
+  {% endfor %}
+  </ul>
+</section>
+
+<section class="container" id="plant-list-mr">
+  <h2 class="title">Plant List as JSON</h2>
+  <p>You can also retrieve the plant list in a machine readable format.</p>
+  <a class="button" href="index.json">JSON</a>
+</section>
+{% endblock %}
