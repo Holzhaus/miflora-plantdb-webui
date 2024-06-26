@@ -38,6 +38,6 @@
 <section class="container" id="plant-mr">
   <h2 class="title">Plant as JSON</h2>
   <p>You can also retrieve the plant information in a machine readable format.</p>
-  <a class="button" href="{{plant.slug}}.json">JSON</a>
+  <a class="button" href="{% if base_url %}{{ base_url }}plant/{% endif %}{{ plant.slug }}.json">JSON</a>
 </section>
 {% endblock %}

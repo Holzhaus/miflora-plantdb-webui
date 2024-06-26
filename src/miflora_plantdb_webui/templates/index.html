@@ -13,7 +13,7 @@
   <p>The list contains {{ plants | length }} entries.<p>
   <ul>
   {% for plant in plants %}
-  <li><a href="plant/{{ plant.slug }}.html">{{ plant.display_pid }}</a></li>
+  <li><a href="{{ base_url }}plant/{{ plant.slug }}.html">{{ plant.display_pid }}</a></li>
   {% endfor %}
   </ul>
 </section>
@@ -21,6 +21,6 @@
 <section class="container" id="plant-list-mr">
   <h2 class="title">Plant List as JSON</h2>
   <p>You can also retrieve the plant list in a machine readable format.</p>
-  <a class="button" href="index.json">JSON</a>
+  <a class="button" href="{{ base_url }}index.json">JSON</a>
 </section>
 {% endblock %}
