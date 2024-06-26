@@ -6,12 +6,14 @@
 <section class="container" id="plant-meta">
    <h1 class="title">{{ plant.display_pid }}</h1>
 
-   {% for attr in ("origin", "production", "category", "blooming", "color", "size", "soil", "sunlight", "watering", "fertilization", "pruning") %}
-   {% if plant[attr] %}
-   <dt id="{{ attr }}">{{ attr | title }}</dt>
-   <dd>{{ plant[attr] }}</dd>
-   {% endif %}
-   {% endfor %}
+   <dl>
+     {% for attr in ("origin", "production", "category", "blooming", "color", "size", "soil", "sunlight", "watering", "fertilization", "pruning") %}
+     {% if plant[attr] %}
+     <dt id="{{ attr }}">{{ attr | title }}</dt>
+     <dd>{{ plant[attr] }}</dd>
+     {% endif %}
+     {% endfor %}
+   </dl>
 </section>
 
 <section class="container" id="plant-hass">
