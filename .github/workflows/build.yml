@@ -36,7 +36,7 @@ jobs:
       run: pip install .
 
     - name: Build
-      run: miflora-plantdb-webui --output-dir ./public --base-url "${{ steps.pages.outputs.base_url }}/" MiFloraDB/PlantDB_5335_U0.csv 
+      run: miflora-plantdb-webui --output-dir ./public --base-url "${{ steps.pages.outputs.page_url }}/" MiFloraDB/PlantDB_5335_U0.csv
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
