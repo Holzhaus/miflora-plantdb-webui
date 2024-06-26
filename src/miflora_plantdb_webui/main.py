@@ -36,7 +36,7 @@ def main(argv: list[str] | None = None):
         with plant_directory.joinpath(f"{plant.slug}.html").open("w") as fp:
             fp.write(markup)
         with plant_directory.joinpath(f"{plant.slug}.json").open("w") as fp:
-            json.dump(plant._asdict(), fp)
+            json.dump(plant._asdict(), fp, indent=2)
 
     plant_template = env.get_template("index.html")
     markup = plant_template.render(plants=plants, base_url=args.base_url)
@@ -44,5 +44,10 @@ def main(argv: list[str] | None = None):
         fp.write(markup)
     with args.output_dir.joinpath(f"index.json").open("w") as fp:
         json.dump(
-            {plant.display_pid: f"{args.base_url}plant/{plant.slug}.json" for plant in plants}, fp
+            {
+                plant.display_pid: f"{args.base_url}plant/{plant.slug}.json"
+                for plant in plants
+            },
+            fp,
+            indent=2,
         )
