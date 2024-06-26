@@ -40,4 +40,8 @@
   <p>You can also retrieve the plant information in a machine readable format.</p>
   <a class="button" href="{% if base_url %}{{ base_url }}plant/{% endif %}{{ plant.slug }}.json">JSON</a>
 </section>
+
+<section class="container" id="back">
+  <a class="button button-outline"" href="{% if base_url %}{{ base_url }}{% else %}..{% endif %}">Back to Index</a>
+</section>
 {% endblock %}
